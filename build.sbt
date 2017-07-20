@@ -1,6 +1,7 @@
 enablePlugins(JmhPlugin)
 
+scalaVersion in Global  := "2.11.11"
 
 libraryDependencies ++= Seq(
-  "net.liftweb" % "lift-json_2.11" % "3.0-M2"
+  "net.liftweb" %% "lift-json" % "3.1.0"
 )
