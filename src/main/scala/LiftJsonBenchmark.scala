@@ -13,7 +13,13 @@ class LiftJsonBenchmark  {
   val p = Person("firstName", "lastName", "a long address with a carriage return\n ", 21)
  
   implicit val df = DefaultFormats
+  
+  val pString = Serialization.write(p)
  
   @Benchmark
   def serializeCaseClass = Serialization.write(p)
+  
+  @Benchmark
+  def readCaseClass = (parse(pString)).extract[Person]
+  
 }
